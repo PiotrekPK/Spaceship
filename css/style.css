@@ -1,5 +1,7 @@
 :root {
   --primary-color: #09fcfd;
+  --size-unit: 64px;
+  --ships-animation-time: 200ms;
 }
 
 *,
@@ -69,4 +71,83 @@ body {
 }
 .hide {
   display: none;
+}
+.spaceship {
+  width: var(--size-unit);
+  height: var(--size-unit);
+  background-image: url(../images/ship.png);
+  animation: move 200ms steps(8) infinite;
+  position: fixed;
+}
+.enemy {
+  width: var(--size-unit);
+  height: var(--size-unit);
+  background-image: url(../images/enemy.png);
+  animation: move-enemy 200ms steps(5) infinite;
+}
+.enemy--big {
+  width: calc(var(--size-unit) * 2);
+  height: calc(var(--size-unit) * 2);
+  background-image: url(../images/enemy-big.png);
+  animation: move-enemy--big steps(8) 200ms infinite;
+}
+
+.explosion {
+  width: var(--size-unit);
+  height: var(--size-unit);
+  background-image: url(../images/explosion.png);
+  animation: explosion 600ms steps(17) forwards;
+}
+.explosion--big {
+  width: calc(var(--size-unit) * 2);
+  height: calc(var(--size-unit) * 2);
+  background-image: url(../images/explosion-big.png);
+  animation: explosion--big 700ms steps(17) forwards;
+}
+.missile {
+  background-image: url(../images/missile.png);
+  background-size: cover;
+  width: 12px;
+  height: 24px;
+  position: absolute;
+}
+@keyframes move-enemy {
+  0% {
+    background-position-x: 0px;
+  }
+  100% {
+    background-position-x: calc(var(--size-unit) * -5);
+  }
+}
+@keyframes explosion {
+  0% {
+    background-position-x: 0px;
+  }
+  100% {
+    background-position-x: calc(var(--size-unit) * -17);
+  }
+}
+@keyframes explosion--big {
+  0% {
+    background-position-x: 0px;
+  }
+  100% {
+    background-position-x: calc(var(--size-unit) * -34);
+  }
+}
+@keyframes move-enemy--big {
+  0% {
+    background-position-x: 0px;
+  }
+  100% {
+    background-position-x: calc(var(--size-unit) * -16);
+  }
+}
+@keyframes move {
+  0% {
+    background-position-x: 0px;
+  }
+  100% {
+    background-position-x: calc(var(--size-unit) * -8);
+  }
 }
