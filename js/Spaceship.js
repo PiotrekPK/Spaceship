@@ -10,12 +10,12 @@ export class Spaceship {
   }
 
   init() {
-    this.#setPosition();
+    this.setPosition();
     this.#eventListeners();
     this.#gameLoop();
   }
 
-  #setPosition() {
+  setPosition() {
     this.element.style.bottom = "0px";
     this.element.style.left = `${
       window.innerWidth / 2 - this.#getPosition()
@@ -50,14 +50,14 @@ export class Spaceship {
     requestAnimationFrame(this.#gameLoop);
   };
   #whatKey() {
-    if (this.leftArrow && this.#getPosition() > 0) {
+    if (this.leftArrow && this.#getPosition() - 25 > 0) {
       this.element.style.left = `${
-        parseInt(this.element.style.left, 10) - 10
+        parseInt(this.element.style.left, 10) - 15
       }px`;
     }
-    if (this.rightArrow && this.#getPosition() < window.innerWidth) {
+    if (this.rightArrow && this.#getPosition() + 25 < window.innerWidth) {
       this.element.style.left = `${
-        parseInt(this.element.style.left, 10) + 10
+        parseInt(this.element.style.left, 10) + 15
       }px`;
     }
   }

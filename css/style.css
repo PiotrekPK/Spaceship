@@ -80,12 +80,15 @@ body {
   position: fixed;
 }
 .enemy {
+  position: fixed;
+  z-index: 1;
   width: var(--size-unit);
   height: var(--size-unit);
   background-image: url(../images/enemy.png);
   animation: move-enemy 200ms steps(5) infinite;
 }
 .enemy--big {
+  position: fixed;
   width: calc(var(--size-unit) * 2);
   height: calc(var(--size-unit) * 2);
   background-image: url(../images/enemy-big.png);
@@ -93,12 +96,14 @@ body {
 }
 
 .explosion {
+  position: fixed;
   width: var(--size-unit);
   height: var(--size-unit);
   background-image: url(../images/explosion.png);
   animation: explosion 600ms steps(17) forwards;
 }
 .explosion--big {
+  position: fixed;
   width: calc(var(--size-unit) * 2);
   height: calc(var(--size-unit) * 2);
   background-image: url(../images/explosion-big.png);
@@ -150,4 +155,7 @@ body {
   100% {
     background-position-x: calc(var(--size-unit) * -8);
   }
+}
+.hit {
+  background-color: #510303;
 }
